@@ -1,0 +1,25 @@
+Se listan las preguntas y los datos a cargar para responderlas. Luego, en cada caso, se detalla que estructura usar y se da un ejemplo.
+
+1) Cuál es el porcentaje de cada tipo de alojamiento por barrio?
+  -Tipo de alojamiento (room_type)
+  -Barrio del alojamiento (neighbourhood_cleansed)
+Usamos dos diccionarios anidados donde la clave principal es el barrio del alojamiento y su valor es otro diccinario cuya clave es el tipo del alojamiento y su valor un contador".
+Ejemplo: dicc = {"Leblón": {"Private room": "52"}}
+
+2) Cuál es el porcentaje de alojamientos que pueden ser reservados en el momento según la calificación?
+  -Tiene reserva inmediata? (instant_bookable)
+  -Calificación del alojamiento (review_scores_rating)
+Creamos un diccionario cuya clave será los distintos valores de calificación que puede tomar cada alojamiento (0.0-0.9; 1.0-1.9; 2.0-2.9; 3.0-3.9; 4.0-5.0), y su valor el dato binario recolectado sobre la reserva inmediata que guardamos en una tupla. Para luego contar las cantidades de cada par de valores y realizar el porcentaje deseado.
+Ejemplo: dicc = {"3.0-3.9": (True, False, False)}
+
+3) Cuál es el promedio de tiempo mínimo requerido para alquilar por barrio?
+  -Tiempo mínimo de estadía (minimum_nights)
+  -Barrio del alojamiento (neighbourhood_cleansed)
+Usamos un diccionario y establecemos como clave el dato obtenido sobre los barrios de la ciudad, y luego como valor listamos los tiempos de estadía mínimo de cada alojamiento de dichos barrios.
+Ejemplo: dicc = {"Copacabana": [15, 1, 3, 30]}
+
+4) Cuál es el promedio de personas que puede habitar un inmueble según la calificación?
+  -Personas máximas por inmueble (accommodates)
+  -Calificación del alojamiento (review_scores_rating)
+Creamos un diccionario cuya clave será los distintos valores de calificación que puede tomar cada alojamiento (0.0-0.9; 1.0-1.9; 2.0-2.9; 3.0-3.9; 4.0-5.0) y su valor una lista con los días máximo de estadía de dichos alojamientos.
+Ejemplo: dicc = {"4.0-5.0": [5, 2, 2, 4]}
